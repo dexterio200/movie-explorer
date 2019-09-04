@@ -1,0 +1,21 @@
+.App-header {
+    display: grid;
+    grid-template-columns: 18% 72% auto;
+    background-color: burlywood;
+}
+
+.App-header-title {
+    padding: 16px 12px 9px;
+    text-align: center;
+    display: block;
+    /* transition: all .5s ease; */
+}
+
+.App-header-title img {
+    width: 6em;
+}
+
+.App-logo {
+    overflow: hidden;
+    position: relative;
+}
