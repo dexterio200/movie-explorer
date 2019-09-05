@@ -1,0 +1,46 @@
+.Movie-wrapper {
+    padding: 6em;
+    position: relative;
+}
+  
+.movie-content {
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+  
+.movie-data {
+    padding: 0 10%;
+}
+  
+.movie-poster {
+    border-radius: 3px;
+    box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.2);
+}
+  
+.movie-title,
+.movie-info-title,
+.movie-info {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+  
+.movie-title {
+    font-weight: normal;
+}
+  
+.movie-info-title {
+    color: #96A5B1;
+    font-weight: normal;
+    text-align: center;
+    margin: 0.5em 0.5em 0.5em 0;
+    display: inline-block;
+}
+
+.movie-info {
+    display: block;
+}
+
+.movie-info-vote_average {
+    display: block;
+    color: yellow;
+}
