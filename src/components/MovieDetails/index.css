@@ -1,3 +1,14 @@
+a {
+    color: yellowgreen;
+    text-decoration: none;
+}
+a:visited {
+    color: yellowgreen;
+}
+a:hover {
+    color: #F0A70D;
+}
+
 .Movie-wrapper {
     padding: 6em;
     position: relative;
@@ -31,7 +42,7 @@
 }
   
 .movie-info-title {
-    color: #96A5B1;
+    color: #F0A70D;
     font-weight: normal;
     text-align: center;
     margin: 0.5em 0.5em 0.5em 0;
@@ -42,7 +53,31 @@
     display: block;
 }
 
-.movie-info-vote_average {
+.similar-movie-heading {
+    text-align: center;
+    font-weight: normal;
+    margin: 2.5em;
+    font-size: 1.5rem;
+}
+
+.review {
+    margin: 1rem auto;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    max-width: 65%;
+    min-width: 15rem;
+    background-color: #75a3a3;
+    color: black;
+}
+
+.review-author {
+    font-weight: bolder;
+    margin: 1em;
+    color: #e6e600;
     display: block;
-    color: #F0A70D;
+}
+
+.review-content {
+    display: block;
+    margin: 1em 2em;
 }
