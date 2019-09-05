@@ -11,7 +11,7 @@ const SearchResult = (props) => {
         fetch(`${BASE_URL}${SEARCH_LINK}${MOVIE_LINK}?api_key=${API_KEY}&query=${searchTerm}`)
             .then(response => response.json())
             .then(movies => setSearchResult(movies.results));
-    }, [])
+    }, [searchTerm])
 
     return (
         <div>
