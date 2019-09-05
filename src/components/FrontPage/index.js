@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { API_KEY, BASE_URL, DISCOVER_LINK, MOVIE_LINK, TOP_RATED_LINK } from '../../api';
 import Header from '../Header'
-import { API_KEY, BASE_URL, DISCOVER_LINK, MOVIE_LINK } from '../../api';
+import MovieBox from '../MovieBox'
+import './index.css'
 
 const dt = new Date()
 const currentDate = dt.toISOString().split('T')[0]
@@ -23,7 +25,7 @@ const FrontPage = () => {
 
     const [topRatedMovies, setTopRatedMovies] = useState([])
     useEffect(() => {
-        fetch(`${BASE_URL}${DISCOVER_LINK}${MOVIE_LINK}?sort_by=vote_average.desc&api_key=${API_KEY}`)
+        fetch(`${BASE_URL}${MOVIE_LINK}${TOP_RATED_LINK}?api_key=${API_KEY}`)
             .then(response => response.json())
             .then(movies => setTopRatedMovies(movies.results))
     }, [topRatedMovies])
@@ -31,32 +33,20 @@ const FrontPage = () => {
     return (
         <div>
             <Header />
-            <h3>In Theaters</h3>
-            <ul>
-                {moviesInTheaters.length !== 0 
-                    ? moviesInTheaters.map(movie =>
-                        <li key={movie.id}>{movie.title}</li>)
-                    : 'Loading...'
-                }
-            </ul>
+            <h1>In Theaters</h1>
+            {moviesInTheaters.length !== 0
+                ? <MovieBox movies={moviesInTheaters} />
+                : 'Loading...'}
 
-            <h3>Popular</h3>
-            <ul>
-                {popularMovies.length !== 0 
-                    ? popularMovies.map(movie =>
-                        <li key={movie.id}>{movie.title}</li>)
-                    : 'Loading...'
-                }
-            </ul>
+            <h1>Popular</h1>
+            {popularMovies.length !== 0
+                ? <MovieBox movies={popularMovies} />
+                : 'Loading...'}
 
-            <h3>Top Rated</h3>
-            <ul>
-                {topRatedMovies.length !== 0 
-                    ? topRatedMovies.map(movie =>
-                        <li key={movie.id}>{movie.title}</li>)
-                    : 'Loading...'
-                }
-            </ul>
+            <h1>Top Rated</h1>
+            {topRatedMovies.length !== 0
+                ? <MovieBox movies={topRatedMovies} />
+                : 'Loading...'}
         </div>
     )
 }

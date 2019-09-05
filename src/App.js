@@ -6,7 +6,11 @@ import FrontPage from './components/FrontPage';
 function App() {
   return (
     <div className="App">
-      <Route path="/" exact component={FrontPage} />
+      <div className="App-main">
+        <div className="App-content-wrapper">
+          <Route path="/" exact component={FrontPage} />
+        </div>
+      </div>
     </div>
   );
 }

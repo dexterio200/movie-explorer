@@ -28,12 +28,7 @@ img {
 
 .App-main {
   display: grid;
-  grid-template-columns: 18% auto;
   min-height: 100vh;
-}
-
-.App-sidebar-wrapper {
-  background-color: #191C1F;
 }
 
 .App-content-wrapper {
