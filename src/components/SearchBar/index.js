@@ -1,29 +1,26 @@
 import React, { useState } from 'react';
-// import View from './view'
+import { withRouter } from 'react-router-dom'
 import './index.css';
 
-const SearchBar = ({ search }) => {
+const SearchBar = (props) => {
     const [searchValue, setSearchValue] = useState('')
+
+    let searchTerm = ''
+    if (searchValue !== '') {
+        searchTerm = searchValue.replace(/\s/g, '+');
+    }
 
     const handleSearchChange = (event) => {
         setSearchValue(event.target.value)
     }
 
-    const resetInputField = () => {
-        setSearchValue('')
-    }
-
     const handleSearchSubmit = (event) => {
         event.preventDefault();
-        search(searchValue)
-        resetInputField()
+        props.history.push({
+            pathname: `/search`,
+            search: `?query=${searchTerm}`
+        })
     }
-
-    // return <View
-    //     onChange={this.onChange}
-    //     onSubmit={this.onSubmit}
-    //     searchTerm={this.state.searchTerm}
-    // />
 
     return (
         <div className="SearchBar-wrapper">
@@ -41,4 +38,4 @@ const SearchBar = ({ search }) => {
     );
 }
 
-export default SearchBar
+export default withRouter(SearchBar)

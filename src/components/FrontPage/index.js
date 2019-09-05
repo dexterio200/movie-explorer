@@ -10,25 +10,22 @@ const priorDate = new Date(dt.setDate(dt.getDate() - 35)).toISOString().split('T
 
 const FrontPage = () => {
     const [moviesInTheaters, setMoviesInTheaters] = useState([])
+    const [popularMovies, setPopularMovies] = useState([])
+    const [topRatedMovies, setTopRatedMovies] = useState([])
+
     useEffect(() => {
         fetch(`${BASE_URL}${DISCOVER_LINK}${MOVIE_LINK}?primary_release_date.gte=${priorDate}&primary_release_date.lte=${currentDate}&api_key=${API_KEY}`)
             .then(response => response.json())
             .then(movies => setMoviesInTheaters(movies.results))
-    }, [moviesInTheaters])
 
-    const [popularMovies, setPopularMovies] = useState([])
-    useEffect(() => {
         fetch(`${BASE_URL}${DISCOVER_LINK}${MOVIE_LINK}?sort_by=popularity.desc&api_key=${API_KEY}`)
             .then(response => response.json())
             .then(movies => setPopularMovies(movies.results))
-    }, [popularMovies])
 
-    const [topRatedMovies, setTopRatedMovies] = useState([])
-    useEffect(() => {
         fetch(`${BASE_URL}${MOVIE_LINK}${TOP_RATED_LINK}?api_key=${API_KEY}`)
             .then(response => response.json())
             .then(movies => setTopRatedMovies(movies.results))
-    }, [topRatedMovies])
+    }, [])
 
     return (
         <div>
@@ -36,17 +33,17 @@ const FrontPage = () => {
             <h1>In Theaters</h1>
             {moviesInTheaters.length !== 0
                 ? <MovieBox movies={moviesInTheaters} />
-                : 'Loading...'}
+                : <p>Loading...</p>}
 
             <h1>Popular</h1>
             {popularMovies.length !== 0
                 ? <MovieBox movies={popularMovies} />
-                : 'Loading...'}
+                : <p>Loading...</p>}
 
             <h1>Top Rated</h1>
             {topRatedMovies.length !== 0
                 ? <MovieBox movies={topRatedMovies} />
-                : 'Loading...'}
+                : <p>Loading...</p>}
         </div>
     )
 }

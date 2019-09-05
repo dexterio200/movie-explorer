@@ -1,6 +1,6 @@
 export const BASE_URL = 'https://api.themoviedb.org/3'
 export const API_KEY = '2fc8e1f556db77f9fa6067651ab30c86'
-export const SEARCH_ROUTE = '/search'
+export const SEARCH_LINK = '/search'
 export const MOVIE_LINK = '/movie'
 export const DISCOVER_LINK = '/discover'
 export const POPULAR_LINK = '/popular'
