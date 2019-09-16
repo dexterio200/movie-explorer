@@ -56,7 +56,7 @@ a:hover {
   display: block;
 }
 
-.similar-movie-heading {
+.review-similar-heading {
   text-align: center;
   font-weight: normal;
   margin: 2.5em;
@@ -84,4 +84,5 @@ a:hover {
 .review-content {
   display: block;
   margin: 1em 2em;
+  overflow-wrap: break-word;
 }
