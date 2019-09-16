@@ -1,21 +1,24 @@
 .App-header {
-    display: grid;
-    grid-template-columns: 18% 72% auto;
-    background-color: burlywood;
+  display: grid;
+  grid-template-columns: 18% 72% auto;
+  background-color: burlywood;
 }
 
 .App-header-title {
-    padding: 16px 12px 9px;
-    text-align: center;
-    display: block;
-    /* transition: all .5s ease; */
+  text-align: center;
+  display: block;
+  position: absolute;
+  z-index: 1;
 }
 
 .App-header-title img {
-    width: 6em;
+  margin-left: 1.2em;
+  max-width: 90%;
+  max-height: 50px;
 }
 
 .App-logo {
-    overflow: hidden;
-    position: relative;
+  position: relative;
+  display: flex;
+  align-items: center;
 }

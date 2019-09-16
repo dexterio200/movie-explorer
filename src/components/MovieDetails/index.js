@@ -28,6 +28,9 @@ const Movie = (props) => {
         fetch(`${BASE_URL}${MOVIE_LINK}/${movieId}/similar?api_key=${API_KEY}`)
             .then(response => response.json())
             .then(movies => setSimilarMovies(movies.results))
+
+        // Scroll to top
+        window.scrollTo(0, 0);
     }, [movieId])
 
     return (movie
@@ -35,8 +38,8 @@ const Movie = (props) => {
             <Header />
             <div className="Movie-wrapper">
                 <div className="movie-content">
-                    <div>
-                        <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
+                    <div className="movie-poster">
+                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="movie-poster" />
                     </div>
                     <div className="movie-data">
                         <h1 className="movie-title">{movie.title}</h1>
@@ -58,26 +61,26 @@ const Movie = (props) => {
                         <span className="movie-info">{movie.vote_average}</span>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    {movieReviews &&
-                        <div className="reviews">
-                            <h3 className="similar-movie-heading">Reviews</h3>
-                            {movieReviews.map(review => <div className="review">
-                                <span className="review-author">{review.author} said:</span>
-                                <span className="review-content">{review.content}</span>
-                            </div>)}
-                        </div>
-                    }
-                </div>
+            <div>
+                {movieReviews &&
+                    <div className="reviews">
+                        <h3 className="similar-movie-heading">Reviews</h3>
+                        {movieReviews.map(review => <div className="review">
+                            <span className="review-author">{review.author} said:</span>
+                            <span className="review-content">{review.content}</span>
+                        </div>)}
+                    </div>
+                }
+            </div>
 
-                <div>
-                    {similarMovies &&
-                        <div>
-                            <h3 className="similar-movie-heading">You might be interested in</h3>
-                            <MovieBox movies={similarMovies} />
-                        </div>}
-                </div>
+            <div>
+                {similarMovies &&
+                    <div>
+                        <h3 className="similar-movie-heading">You might be interested in</h3>
+                        <MovieBox movies={similarMovies} />
+                    </div>}
             </div>
         </div>
 

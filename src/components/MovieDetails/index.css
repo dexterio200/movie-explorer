@@ -1,83 +1,87 @@
 a {
-    color: yellowgreen;
-    text-decoration: none;
+  color: yellowgreen;
+  text-decoration: none;
 }
 a:visited {
-    color: yellowgreen;
+  color: yellowgreen;
 }
 a:hover {
-    color: #F0A70D;
+  color: #f0a70d;
 }
 
 .Movie-wrapper {
-    padding: 6em;
-    position: relative;
+  margin: 3.5em;
 }
-  
+
 .movie-content {
-    display: flex;
-    position: relative;
-    z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
 }
-  
+
 .movie-data {
-    padding: 0 10%;
+  padding: 0 10%;
 }
-  
+
 .movie-poster {
-    border-radius: 3px;
-    box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.2);
-    width: 70em;
+  display: flex;
+  margin: auto;
+  border-radius: 3px;
+  max-width: 80%;
 }
-  
-.movie-title,
-.movie-info-title,
-.movie-info {
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+@media (min-width: 900px) {
+  .movie-data {
+    flex: 2;
+  }
+
+  .movie-poster {
+    flex: 1;
+  }
 }
-  
+
 .movie-title {
-    font-weight: normal;
-    margin-top: 0;
+  font-weight: normal;
+  margin-top: 0;
 }
-  
+
 .movie-info-title {
-    color: #F0A70D;
-    font-weight: normal;
-    text-align: center;
-    margin: 0.5em 0.5em 0.5em 0;
-    display: inline-block;
+  color: #f0a70d;
+  font-weight: normal;
+  text-align: center;
+  margin: 0.5em 0.5em 0.5em 0;
+  display: inline-block;
 }
 
 .movie-info {
-    display: block;
+  display: block;
 }
 
 .similar-movie-heading {
-    text-align: center;
-    font-weight: normal;
-    margin: 2.5em;
-    font-size: 1.5rem;
+  text-align: center;
+  font-weight: normal;
+  margin: 2.5em;
+  font-size: 25px;
 }
 
 .review {
-    margin: 1rem auto;
-    border: 1px solid lightblue;
-    border-radius: 5px;
-    max-width: 65%;
-    min-width: 15rem;
-    background-color: #75a3a3;
-    color: black;
+  margin: 1rem auto;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  max-width: 80%;
+  min-width: 15rem;
+  background-color: #75a3a3;
+  color: black;
+  font-size: 13px;
 }
 
 .review-author {
-    font-weight: bolder;
-    margin: 1em;
-    color: #e6e600;
-    display: block;
+  font-weight: bolder;
+  margin: 1em;
+  color: #e6e600;
+  display: block;
 }
 
 .review-content {
-    display: block;
-    margin: 1em 2em;
+  display: block;
+  margin: 1em 2em;
 }
