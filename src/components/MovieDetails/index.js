@@ -10,9 +10,9 @@ const Movie = (props) => {
     const [movie, setMovieDetails] = useState(null)
     const [movieReviews, setMovieReviews] = useState(null)
     const [similarMovies, setSimilarMovies] = useState(null)
-    let movieTrailer
+    let movieTrailer = ''
 
-    if (movie) {
+    if (movie && movie.videos) {
         movieTrailer = movie.videos.results.find(video => video.type === 'Trailer')
     }
 
@@ -23,7 +23,10 @@ const Movie = (props) => {
 
         fetch(`${BASE_URL}${MOVIE_LINK}/${movieId}/reviews?api_key=${API_KEY}`)
             .then(response => response.json())
-            .then(reviews => setMovieReviews(reviews.results))
+            .then(reviews => {
+                if (reviews.results.length !== 0)
+                    setMovieReviews(reviews.results)
+            })
 
         fetch(`${BASE_URL}${MOVIE_LINK}/${movieId}/similar?api_key=${API_KEY}`)
             .then(response => response.json())
@@ -44,44 +47,51 @@ const Movie = (props) => {
                     <div className="movie-data">
                         <h1 className="movie-title">{movie.title}</h1>
 
-                        {movieTrailer &&
+                        {movieTrailer !== '' &&
                             <h3><a href={`https://www.youtube.com/watch?v=${movieTrailer.key}`} target={"_blank"}>
                                 Watch trailer
                             </a></h3>}
 
-                        <h3 className="movie-info-title">Overview:</h3>
-                        <span className="movie-info">{movie.overview}</span>
-                        <h3 className="movie-info-title">Release date:</h3>
-                        <span className="movie-info">{movie.release_date}</span>
-                        <h3 className="movie-info-title">Budget:</h3>
-                        <span className="movie-info">${movie.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
-                        <h3 className="movie-info-title">Revenue:</h3>
-                        <span className="movie-info">${movie.revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
-                        <h3 className="movie-info-title">Average Rating Score:</h3>
-                        <span className="movie-info">{movie.vote_average}</span>
+                        {movie.overview && <div>
+                            <h3 className="movie-info-title">Overview:</h3>
+                            <span className="movie-info">{movie.overview}</span>
+                        </div>}
+                        {movie.release_date && <div>
+                            <h3 className="movie-info-title">Release date:</h3>
+                            <span className="movie-info">{movie.release_date}</span>
+                        </div>}
+                        {!!movie.budget && movie.budget !== 0 && <div>
+                            <h3 className="movie-info-title">Budget:</h3>
+                            <span className="movie-info">${movie.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
+                        </div>}
+                        {!!movie.revenue && movie.revenue !== 0 && <div>
+                            <h3 className="movie-info-title">Revenue:</h3>
+                            <span className="movie-info">${movie.revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
+                        </div>}
+                        {!!movie.vote_average && <div>
+                            <h3 className="movie-info-title">Average Rating Score:</h3>
+                            <span className="movie-info">{movie.vote_average}</span>
+                        </div>}
                     </div>
                 </div>
             </div>
 
-            <div>
-                {movieReviews &&
-                    <div className="reviews">
-                        <h3 className="similar-movie-heading">Reviews</h3>
-                        {movieReviews.map(review => <div className="review">
-                            <span className="review-author">{review.author} said:</span>
-                            <span className="review-content">{review.content}</span>
-                        </div>)}
-                    </div>
-                }
-            </div>
+            {movieReviews &&
+                <div className="reviews">
+                    <h3 className="review-similar-heading">Reviews</h3>
+                    {movieReviews.map(review => <div key={review.id} className="review">
+                        <span className="review-author">{review.author} said:</span>
+                        <span className="review-content">{review.content}</span>
+                    </div>)}
+                </div>
+            }
 
-            <div>
-                {similarMovies &&
-                    <div>
-                        <h3 className="similar-movie-heading">You might be interested in</h3>
-                        <MovieBox movies={similarMovies} />
-                    </div>}
-            </div>
+            {similarMovies &&
+                <div>
+                    <h3 className="review-similar-heading">You might be interested in</h3>
+                    <MovieBox movies={similarMovies} />
+                </div>
+            }
         </div>
 
         : <p>Loading...</p>
