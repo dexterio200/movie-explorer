@@ -33,7 +33,7 @@ const Movie = (props) => {
             .then(movies => setSimilarMovies(movies.results))
 
         // Scroll to top
-        window.scrollTo(0, 0);
+        setTimeout(async () => await window.scrollTo(0, 0), 200)
     }, [movieId])
 
     return (movie
