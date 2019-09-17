@@ -29,19 +29,9 @@ a:hover {
   max-width: 80%;
 }
 
-@media (min-width: 900px) {
-  .movie-data {
-    flex: 2;
-  }
-
-  .movie-poster {
-    flex: 1;
-  }
-}
-
 .movie-title {
   font-weight: normal;
-  margin-top: 0;
+  margin: 40px 0 30px 0;
 }
 
 .movie-info-title {
@@ -85,4 +75,18 @@ a:hover {
   display: block;
   margin: 1em 2em;
   overflow-wrap: break-word;
+}
+
+@media (min-width: 900px) {
+  .movie-data {
+    flex: 2;
+  }
+
+  .movie-poster {
+    flex: 1;
+  }
+
+  .movie-title {
+    margin-top: 0;
+  }
 }
