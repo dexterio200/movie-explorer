@@ -1,16 +1,16 @@
 a {
-  color: yellowgreen;
+  color: #9bdc14;
   text-decoration: none;
 }
 a:visited {
-  color: yellowgreen;
+  color: #9bdc14;
 }
 a:hover {
   color: #f0a70d;
 }
 
 .Movie-wrapper {
-  margin: 3.5em;
+  margin: 3em;
 }
 
 .movie-content {
@@ -26,12 +26,18 @@ a:hover {
   display: flex;
   margin: auto;
   border-radius: 3px;
-  max-width: 80%;
+  max-width: 12.5em;
+  max-height: 18em;
 }
 
 .movie-title {
   font-weight: normal;
   margin: 40px 0 30px 0;
+}
+
+.watch-trailer {
+  font-size: 1.3em;
+  text-decoration: underline;
 }
 
 .movie-info-title {
@@ -61,14 +67,15 @@ a:hover {
   min-width: 15rem;
   background-color: #75a3a3;
   color: black;
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .review-author {
   font-weight: bolder;
   margin: 1em;
-  color: #e6e600;
+  color: #ecec0b;
   display: block;
+  font-size: 12px;
 }
 
 .review-content {
@@ -78,15 +85,31 @@ a:hover {
 }
 
 @media (min-width: 900px) {
+  .Movie-wrapper {
+    margin: 6em;
+  }
+
   .movie-data {
     flex: 2;
+    padding: 0 0 0 10%;
   }
 
   .movie-poster {
     flex: 1;
+    max-width: 360px;
+    max-height: 540px;
   }
 
   .movie-title {
     margin-top: 0;
+  }
+
+  .review {
+    font-size: 13px;
+    max-width: 70%;
+  }
+
+  .review-author {
+    font-size: 14px;
   }
 }
