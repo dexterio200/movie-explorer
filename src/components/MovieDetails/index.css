@@ -9,7 +9,7 @@ a:hover {
   color: #f0a70d;
 }
 
-.Movie-wrapper {
+.movie-wrapper {
   margin: 3em;
 }
 
@@ -19,15 +19,15 @@ a:hover {
 }
 
 .movie-data {
-  padding: 0 10%;
+  padding: 0 9%;
 }
 
 .movie-poster {
   display: flex;
   margin: auto;
   border-radius: 3px;
-  max-width: 13em;
-  max-height: 18.5em;
+  max-width: 12.4em;
+  max-height: 18.6em;
 }
 
 .movie-title {
@@ -63,7 +63,7 @@ a:hover {
   margin: 1rem auto;
   border: 1px solid lightblue;
   border-radius: 5px;
-  max-width: 80%;
+  max-width: 75%;
   min-width: 15rem;
   background-color: #75a3a3;
   color: black;
@@ -85,19 +85,19 @@ a:hover {
 }
 
 .read-more-button {
-  color: blue;
+  color: #ecec0b;
   cursor: pointer;
   margin: 10px 0;
 }
 
 @media (min-width: 900px) {
-  .Movie-wrapper {
-    margin: 6em;
+  .movie-wrapper {
+    margin: 6em 7em 5.5em 7em;
   }
 
   .movie-data {
     flex: 2;
-    padding: 0 0 0 10%;
+    padding: 0 0 0 12%;
   }
 
   .movie-poster {
@@ -112,7 +112,7 @@ a:hover {
 
   .review {
     font-size: 14px;
-    max-width: 70%;
+    max-width: 60%;
   }
 
   .review-author {
