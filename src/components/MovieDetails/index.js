@@ -18,6 +18,11 @@ const Movie = (props) => {
     }
 
     useEffect(() => {
+        // Clear previous values
+        setMovieDetails(null)
+        setMovieReviews(null)
+        setSimilarMovies(null)
+
         fetch(`${BASE_URL}${MOVIE_LINK}/${movieId}?api_key=${API_KEY}&append_to_response=videos`)
             .then(response => response.json())
             .then(movie => setMovieDetails(movie))
@@ -40,7 +45,7 @@ const Movie = (props) => {
     return (movie
         ? <div>
             <Header />
-            <div className="Movie-wrapper">
+            <div className="movie-wrapper">
                 <div className="movie-content">
                     <div className="movie-poster">
                         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="movie-poster" />
@@ -85,9 +90,9 @@ const Movie = (props) => {
                         <span className="review-content">
                             <ReadMoreReact
                                 text={review.content}
-                                min={250}
-                                ideal={320}
-                                max={360}
+                                min={200}
+                                ideal={240}
+                                max={300}
                             ></ReadMoreReact>
                         </span>
                     </div>)}
