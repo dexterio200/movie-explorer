@@ -48,7 +48,7 @@ const Movie = (props) => {
                         <h1 className="movie-title">{movie.title}</h1>
 
                         {movieTrailer !== '' &&
-                            <h3><a href={`https://www.youtube.com/watch?v=${movieTrailer.key}`} target={"_blank"}>
+                            <h3 className="watch-trailer"><a href={`https://www.youtube.com/watch?v=${movieTrailer.key}`} target={"_blank"}>
                                 Watch trailer
                             </a></h3>}
 
@@ -80,7 +80,7 @@ const Movie = (props) => {
                 <div className="reviews">
                     <h3 className="review-similar-heading">Reviews</h3>
                     {movieReviews.map(review => <div key={review.id} className="review">
-                        <span className="review-author">{review.author} said:</span>
+                        <span className="review-author">{review.author}:</span>
                         <span className="review-content">{review.content}</span>
                     </div>)}
                 </div>
