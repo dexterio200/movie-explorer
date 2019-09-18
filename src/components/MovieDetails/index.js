@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { API_KEY, BASE_URL, MOVIE_LINK } from '../../api'
 import Header from '../Header'
 import MovieBox from '../MovieBox'
+import ReadMoreReact from 'read-more-react'
 import './index.css'
 
 const Movie = (props) => {
@@ -81,7 +82,14 @@ const Movie = (props) => {
                     <h3 className="review-similar-heading">Reviews</h3>
                     {movieReviews.map(review => <div key={review.id} className="review">
                         <span className="review-author">{review.author}:</span>
-                        <span className="review-content">{review.content}</span>
+                        <span className="review-content">
+                            <ReadMoreReact
+                                text={review.content}
+                                min={250}
+                                ideal={320}
+                                max={360}
+                            ></ReadMoreReact>
+                        </span>
                     </div>)}
                 </div>
             }
